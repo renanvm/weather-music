@@ -1,6 +1,6 @@
-package br.com.renan.weathermusic.integration.client;
+package br.com.renan.weathermusic.integration.spotify.client;
 
-import br.com.renan.weathermusic.integration.dto.RecommendationDTO;
+import br.com.renan.weathermusic.integration.spotify.dto.RecommendationDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;

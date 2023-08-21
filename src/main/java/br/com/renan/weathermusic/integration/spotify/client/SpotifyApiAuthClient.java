@@ -1,6 +1,6 @@
-package br.com.renan.weathermusic.integration.client;
+package br.com.renan.weathermusic.integration.spotify.client;
 
-import br.com.renan.weathermusic.integration.dto.AccessTokenDTOResponse;
+import br.com.renan.weathermusic.integration.spotify.dto.AccessTokenDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface SpotifyApiAuthClient {
 
     @PostMapping(path = "/api/token", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    AccessTokenDTOResponse getAccessToken(@RequestParam("grant_type") String grantType,
-                                          @RequestParam("client_id") String clientId,
-                                          @RequestParam("client_secret") String clientSecret);
+    AccessTokenDTO getAccessToken(@RequestParam("grant_type") String grantType,
+                                  @RequestParam("client_id") String clientId,
+                                  @RequestParam("client_secret") String clientSecret);
 
 }
