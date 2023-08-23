@@ -1,21 +1,15 @@
 package br.com.renan.weathermusic.integration.openweather.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
-@Data
-public class MainDTO {
-    private double temp;
-    @JsonProperty("feels_like")
-    private double feelsLike;
-    @JsonProperty("temp_min")
-    private double tempMin;
-    @JsonProperty("temp_max")
-    private double tempMax;
-    private int pressure;
-    private int humidity;
-    @JsonProperty("sea_level")
-    private int seaLevel;
-    @JsonProperty("grnd_level")
-    private int grndLevel;
+public record MainDTO(
+        double temp,
+        @JsonAlias("feels_like") double feelsLike,
+        @JsonAlias("temp_min") double tempMin,
+        @JsonAlias("temp_max") double tempMax,
+        int pressure,
+        int humidity,
+        @JsonAlias("sea_level") int seaLevel,
+        @JsonAlias("grnd_level") int grndLevel
+) {
 }

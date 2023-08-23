@@ -2,8 +2,8 @@ package br.com.renan.weathermusic.service;
 
 import br.com.renan.weathermusic.integration.openweather.dto.WeatherResponseDTO;
 import br.com.renan.weathermusic.model.MusicGenre;
-import br.com.renan.weathermusic.model.Recommendation;
 import br.com.renan.weathermusic.model.MusicRecommendation;
+import br.com.renan.weathermusic.model.Recommendation;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +21,8 @@ public class RecommendationService {
 
     public Recommendation getMusicRecommendationByCityWeather(String city) {
         WeatherResponseDTO weather = openWeatherMapApiService.getWeather(city);
-        double temperature = weather.getMain().getTemp();
-        String description = weather.getWeather().get(0).getDescription();
+        double temperature = weather.main().temp();
+        String description = weather.weather().get(0).description();
 
         MusicGenre musicGenreRecommendation = determineMusicGenreRecommendation(temperature);
 

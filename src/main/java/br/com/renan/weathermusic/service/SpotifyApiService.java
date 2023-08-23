@@ -37,16 +37,16 @@ public class SpotifyApiService {
 
     private String getAuthorization() {
         AccessTokenDTO spotifyAuthResponse = spotifyApiAuthClient.getAccessToken(GRANT_TYPE, clientId, clientSecret);
-        return spotifyAuthResponse.getTokenType() + " " + spotifyAuthResponse.getAccessToken();
+        return spotifyAuthResponse.tokenType() + " " + spotifyAuthResponse.accessToken();
     }
 
     private List<MusicRecommendation> mapRecommendationDTOToMusicRecommendationList(RecommendationDTO recommendationDTO) {
-        return recommendationDTO.getTracks().stream()
+        return recommendationDTO.tracks().stream()
                 .map(trackDTO -> new MusicRecommendation(
-                        trackDTO.getName(),
-                        trackDTO.getArtists().stream().map(artistDTO -> artistDTO.getName()).collect(Collectors.joining(", ")),
-                        trackDTO.getAlbum().getName(),
-                        trackDTO.getExternalUrls().getSpotify()
+                        trackDTO.name(),
+                        trackDTO.artists().stream().map(artistDTO -> artistDTO.name()).collect(Collectors.joining(", ")),
+                        trackDTO.album().name(),
+                        trackDTO.externalUrls().spotify()
                 ))
                 .collect(Collectors.toList());
     }

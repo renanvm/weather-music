@@ -1,10 +1,9 @@
 package br.com.renan.weathermusic.integration.openweather.dto;
 
-import lombok.Data;
+public record WindDTO(
+        double speed,
+        int deg,
+        double gust
+        ) {
 
-@Data
-class WindDTO {
-    private double speed;
-    private int deg;
-    private double gust;
 }

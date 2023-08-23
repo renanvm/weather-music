@@ -1,12 +1,10 @@
 package br.com.renan.weathermusic.integration.spotify.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
-@Data
-public class AccessTokenDTO {
-    @JsonProperty("access_token")
-    private String accessToken;
-    @JsonProperty("token_type")
-    private String tokenType;
+public record AccessTokenDTO(
+        @JsonAlias("access_token") String accessToken,
+        @JsonAlias("token_type") String tokenType
+) {
+
 }
